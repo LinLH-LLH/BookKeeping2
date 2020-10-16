@@ -68,10 +68,14 @@ public class MainClass extends AppCompatActivity {
                 Toast.makeText(MainClass.this
                         ,getResources().getString(R.string.menu_about)
                         ,Toast.LENGTH_SHORT).show();
+                break;
             case R.id.create:
                 Toast.makeText(MainClass.this
                         ,getResources().getString(R.string.menu_create)
                         ,Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
         }
         return true;
     }
