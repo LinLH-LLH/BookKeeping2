@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.List;
 public class MainClass extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Money>ListMoney;
+    private MyBookKeepDBManage manageDB;
 
 
     @Override
@@ -22,11 +24,15 @@ public class MainClass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_view);
         findViews();
-        setIncome_Expenses();
+//        setIncome_Expenses();
+        openDBManage();
+//        setRecyclerViewAdapter();
+        DBTool.updateRecyclerView(MainClass.this,manageDB,recyclerView,"BOOKKEEP");
 
-        setRecyclerViewAdapter();
-        Mydatabase db=new Mydatabase(MainClass.this,Mydatabase._DBName,null,Mydatabase._DBVersion);
+    }
 
+    private void openDBManage() {
+        manageDB = new MyBookKeepDBManage(MainClass.this);
     }
 
     private void setIncome_Expenses() {
@@ -63,16 +69,21 @@ public class MainClass extends AppCompatActivity {
     // call menu triger function
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        DialogFragment dialogFragment;
         switch (item.getItemId()){
             case R.id.about:
                 Toast.makeText(MainClass.this
                         ,getResources().getString(R.string.menu_about)
                         ,Toast.LENGTH_SHORT).show();
+                dialogFragment=new CopyRightDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(),"copyrightLayout");
                 break;
             case R.id.create:
                 Toast.makeText(MainClass.this
                         ,getResources().getString(R.string.menu_create)
                         ,Toast.LENGTH_SHORT).show();
+                dialogFragment=new CreateItemDialogFragment(manageDB,recyclerView);
+                dialogFragment.show(getSupportFragmentManager(),"createLayout");
                 break;
             default:
                 break;

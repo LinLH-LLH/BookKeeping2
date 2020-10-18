@@ -8,6 +8,7 @@ public class Money {
     Money(String title,String subtitle,int img){
         this.title=title;
         this.subtitle=subtitle;
+
         this.img=img;
     }
 

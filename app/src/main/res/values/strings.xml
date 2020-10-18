@@ -3,4 +3,8 @@
     <string name="menu_create">新增</string>
     <string name="menu_about">關於</string>
     <string name="menu_setting">設定</string>
+    <string name="submit">確認</string>
+    <string name="cancel">取消</string>
+    <string name="reset">重設</string>
+    <string name="copyright">Copyright © 2020 Li-Hsuan\'s. All Rights Reserved.</string>
 </resources>

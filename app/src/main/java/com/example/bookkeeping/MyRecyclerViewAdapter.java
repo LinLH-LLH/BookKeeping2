@@ -6,16 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
     private Context context;
-    private List<Money>ListMoney=new ArrayList<>();
+    private List<Money>ListMoney;
 
     MyRecyclerViewAdapter(Context context,List<Money> ListMoney){
         this.context=context;
