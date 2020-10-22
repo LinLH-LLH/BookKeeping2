@@ -9,39 +9,51 @@
         android:layout_height="180dp"
         android:scaleType="fitXY"
         android:src="@mipmap/createlayouticon" />
-
-    <com.google.android.material.textfield.TextInputLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/create_title"
-            android:layout_width="250dp"
+        android:layout_height="150dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="項目">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_title"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="項目">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/create_subtitle"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="金額">
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_subtitle"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="金額">
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        </LinearLayout>
+    </ScrollView>
 
-<LinearLayout
+
+
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -53,11 +65,10 @@
         android:id="@+id/createlayout_btn_cancel"
         style="@style/createlayout_btn_style"
         android:text="@string/cancel"/>
+        <Button
+            android:id="@+id/createlayout_btn_submit"
+            style="@style/createlayout_btn_style"
+            android:text="@string/submit" />
 
-    <Button
-        android:id="@+id/createlayout_btn_submit"
-
-        style="@style/createlayout_btn_style"
-        android:text="@string/submit"/>
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

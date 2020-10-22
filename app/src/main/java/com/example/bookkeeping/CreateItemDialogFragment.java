@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Calendar;
+
 public class CreateItemDialogFragment extends DialogFragment {
     private static final String TAG="DialogFragment";
     private TextInputEditText create_title,create_subtitle;
@@ -28,6 +30,7 @@ public class CreateItemDialogFragment extends DialogFragment {
     private String income_expense[]=new String[]{"請選擇紀錄類型","收入","支出"};
     private MyBookKeepDBManage manageDB;
     private RecyclerView recyclerView;
+    Calendar calendar=Calendar.getInstance();
     public CreateItemDialogFragment(MyBookKeepDBManage manage,RecyclerView recyclerView){
         manageDB=manage;
         this.recyclerView=recyclerView;
@@ -52,9 +55,20 @@ public class CreateItemDialogFragment extends DialogFragment {
                 Log.d(TAG,create_subtitle.getText().toString());
                 int value=Integer.parseInt(create_subtitle.getText().toString());
                 String type=spinner.getSelectedItem().toString();
-                manageDB.insertData("BOOKKEEP",title,value,type);
-                DBTool.updateRecyclerView(getContext(),manageDB,recyclerView,"BOOKKEEP");
+                manageDB.insertData("BOOKKEEP",title,value,type
+                        ,Integer.parseInt(getCalendar().split("/")[0])
+                        ,Integer.parseInt(getCalendar().split("/")[1])
+                        ,Integer.parseInt(getCalendar().split("/")[2]));
+                DBTool.updateRecyclerView(getContext(),manageDB,recyclerView,"BOOKKEEP",getFragmentManager());
                 CreateItemDialogFragment.this.getDialog().cancel();
+            }
+
+            private String getCalendar() {
+                int year=calendar.get(Calendar.YEAR);
+                int month=calendar.get(Calendar.MONTH);
+                int day=calendar.get(Calendar.DAY_OF_MONTH);
+                String text=year+"/"+month+"/"+day;
+                return  text;
             }
         });
         btn_cancel.setOnClickListener(new View.OnClickListener() {

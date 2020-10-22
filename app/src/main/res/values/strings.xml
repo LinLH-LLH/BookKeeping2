@@ -7,4 +7,12 @@
     <string name="cancel">取消</string>
     <string name="reset">重設</string>
     <string name="copyright">Copyright © 2020 Li-Hsuan\'s. All Rights Reserved.</string>
+    <string name="copyright_a">Copyright © 2020 Li-Hsuan\'s.\nAll Rights Reserved.</string>
+    <string name="update">更新</string>
+    <string name="income">收入</string>
+    <string name="expense">支出</string>
+    <string name="date">日期</string>
+    <string name="month">月份</string>
+    <string name="year">年份</string>
+    <string name="personal">個人</string>
 </resources>

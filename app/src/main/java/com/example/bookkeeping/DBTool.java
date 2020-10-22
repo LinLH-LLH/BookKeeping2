@@ -3,6 +3,7 @@ package com.example.bookkeeping;
 import android.content.Context;
 import android.database.Cursor;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,25 +16,49 @@ public class DBTool {
     private MyBookKeepDBManage manage;
     private List<Money>moneyList;
 
-    public static void updateRecyclerView(Context context,MyBookKeepDBManage manage, RecyclerView recyclerView, String tablename){
+    public static void updateRecyclerView(Context context, MyBookKeepDBManage manage,
+                                          RecyclerView recyclerView, String tablename, FragmentManager fragmentManager){
         Cursor cursor;
         List<Money>moneyList=new ArrayList<>();
+        int img[]=new int[]{R.drawable.in,R.drawable.out};
 //        查詢資料
         cursor=manage.selectAllData(tablename);
 //        轉換資料(money)
         if(cursor.moveToFirst()){
             do {
+                int DB_id=cursor.getInt(cursor.getColumnIndex("_id"));
                 String DBtitle=cursor.getString(cursor.getColumnIndex("title"));
                 int DBvalue=cursor.getInt(cursor.getColumnIndex("value"));
                 String DBtype=cursor.getString(cursor.getColumnIndex("type"));
-                String title=DBtype;
-                String subtitle=DBtitle+DBvalue;
-                int image=R.drawable.in;
-                moneyList.add(new Money(title,subtitle,image));
+                int image=DBtype.equals("收入")?img[0]:img[1];
+                moneyList.add(new Money(DB_id,DBtitle,String.valueOf(DBvalue),DBtype,image));
             }while (cursor.moveToNext());
         }
 //        顯示資料
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false));
-        recyclerView.setAdapter(new MyRecyclerViewAdapter(context,moneyList));
+        recyclerView.setAdapter(new MyRecyclerViewAdapter(context,moneyList,manage,fragmentManager,recyclerView));
+    }
+
+    public static void updateRecyclerView(Context context, MyBookKeepDBManage manage,
+                                          RecyclerView recyclerView,int selected_attr ,String tablename, FragmentManager fragmentManager){
+        Cursor cursor;
+        List<Money>moneyList=new ArrayList<>();
+        int img[]=new int[]{R.drawable.in,R.drawable.out};
+//        查詢資料
+        cursor=manage.selectDate(tablename,selected_attr);
+//        轉換資料(money)
+        if(cursor.moveToFirst()){
+            do {
+                int DB_id=cursor.getInt(cursor.getColumnIndex("_id"));
+                String DBtitle=cursor.getString(cursor.getColumnIndex("title"));
+                int DBvalue=cursor.getInt(cursor.getColumnIndex("value"));
+                String DBtype=cursor.getString(cursor.getColumnIndex("type"));
+                int image=DBtype.equals("收入")?img[0]:img[1];
+                moneyList.add(new Money(DB_id,DBtitle,String.valueOf(DBvalue),DBtype,image));
+            }while (cursor.moveToNext());
+        }
+//        顯示資料
+        recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(new MyRecyclerViewAdapter(context,moneyList,manage,fragmentManager,recyclerView));
     }
 }
