@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="個人化">
+        <menu>
+            <item android:id="@+id/personal" android:title="@string/personal"
+                android:icon="@mipmap/person"/>
+            <item android:id="@+id/financial" android:title="分析"
+                android:icon="@mipmap/financial"/>
+        </menu>
+    </item>
+
+    <item android:title="財務型態">
+        <menu>
+            <item android:id="@+id/income" android:title="@string/income"
+                android:icon="@mipmap/happy_white"/>
+            <item android:id="@+id/expense" android:title="@string/expense"
+                android:icon="@mipmap/unhappy_white"/>
+        </menu>
+    </item>
+
+    <item android:title="財務分析方式">
+        <menu>
+            <item android:id="@+id/date" android:title="@string/date"
+                android:icon="@mipmap/trending_up"/>
+            <item android:id="@+id/month" android:title="@string/month"
+                android:icon="@mipmap/trending_up"/>
+            <item android:id="@+id/year" android:title="@string/year"
+                android:icon="@mipmap/trending_up"/>
+        </menu>
+    </item>
+
+    <item android:title="其他">
+        <menu>
+            <item android:id="@+id/about" android:title="@string/menu_about"
+                android:icon="@mipmap/info"/>ng_up"/>
+        </menu>
+    </item>
+
+</menu>
