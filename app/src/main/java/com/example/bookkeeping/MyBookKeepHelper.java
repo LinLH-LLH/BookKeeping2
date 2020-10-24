@@ -13,10 +13,10 @@ import java.util.List;
 
 /*資料庫建立和版本管理*/
 public class MyBookKeepHelper extends SQLiteOpenHelper {
-    private static final String TAG="MyBookKeepHelper";
-    private static int DB_VERSION = 2;
+    private static final String TAG = "MyBookKeepHelper";
+    private static int DB_VERSION = 1;
     private static String DB_NAME = "BookKeep.db";
-    private static String[] TABLE_NAME={"BOOKKEEP"};
+    private static String[] TABLE_NAME = {"BOOKKEEP"};
     private Context context;
 //    private static MyBookKeepDBManage dbManage=new MyBookKeepDBManage(context);
 
@@ -26,27 +26,32 @@ public class MyBookKeepHelper extends SQLiteOpenHelper {
 
     public MyBookKeepHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
-        this.context=context;
-        Log.d(TAG,TAG+"_object create!");
+        this.context = context;
+        Log.d(TAG, TAG + "_object create!");
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable="CREATE TABLE IF NOT EXISTS "+TABLE_NAME[0]
-                +"( _id INTEGER PRIMARY KEY AUTOINCREMENT , title TEXT , value INTEGER , type TEXT );";
+        String createTable2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME[0]
+                + "( _id INTEGER PRIMARY KEY AUTOINCREMENT , title TEXT , value INTEGER , type TEXT );";
+        String createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME[0]
+                + "( _id INTEGER PRIMARY KEY AUTOINCREMENT , title TEXT , value INTEGER , type TEXT" +
+                ",year INTEGER,month INTEGER,date INTEGER);";
         db.execSQL(createTable);
-        Log.d(TAG,"資料庫第一次建立");
+
+
+        Log.d(TAG, "資料庫第一次建立");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if(newVersion>=oldVersion){
-            switch (oldVersion+1){
+        if (newVersion >= oldVersion) {
+            switch (oldVersion + 1) {
                 case 1:
-                    String createTable="CREATE TABLE IF NOT EXISTS "+TABLE_NAME[0]
-                            +"( _id INTEGER PRIMARY KEY AUTOINCREMENT , title TEXT , value INTEGER , type TEXT );";
-                    db.execSQL(createTable);
-                    Log.d(TAG,"資料庫建立");
+//                    String createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME[0]
+//                            + "( _id INTEGER PRIMARY KEY AUTOINCREMENT , title TEXT , value INTEGER , type TEXT );";
+//                    db.execSQL(createTable);
+                    Log.d(TAG, "資料庫建立");
                 case 2:
 //                    String createTable2="CREATE TABLE IF NOT EXISTS "+TABLE_NAME[0]
 //                            +"( _id INTEGER PRIMARY KEY AUTOINCREMENT , title TEXT , value INTEGER , type TEXT" +

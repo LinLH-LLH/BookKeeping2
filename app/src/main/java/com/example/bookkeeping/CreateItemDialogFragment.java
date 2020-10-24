@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class CreateItemDialogFragment extends DialogFragment {
     private static final String TAG="DialogFragment";
@@ -55,15 +56,24 @@ public class CreateItemDialogFragment extends DialogFragment {
                 Log.d(TAG,create_subtitle.getText().toString());
                 int value=Integer.parseInt(create_subtitle.getText().toString());
                 String type=spinner.getSelectedItem().toString();
+                //DB 2.0 之屬性
                 manageDB.insertData("BOOKKEEP",title,value,type
                         ,Integer.parseInt(getCalendar().split("/")[0])
                         ,Integer.parseInt(getCalendar().split("/")[1])
                         ,Integer.parseInt(getCalendar().split("/")[2]));
-                DBTool.updateRecyclerView(getContext(),manageDB,recyclerView,"BOOKKEEP",getFragmentManager());
+                //DB 1.0 之屬性
+//                manageDB.insertData("BOOKKEEP",title,value,type
+//
+//                );
+                /*更新畫面-資料庫2.0-資料內容(ID 標題 金額 型態 圖片 日期)*/
+                DBTool.updateRecyclerView2(getContext(),manageDB,recyclerView,"BOOKKEEP",getFragmentManager());
                 CreateItemDialogFragment.this.getDialog().cancel();
             }
 
             private String getCalendar() {
+                Date date=new Date();
+                date.setTime(System.currentTimeMillis());
+                calendar.setTime(date);
                 int year=calendar.get(Calendar.YEAR);
                 int month=calendar.get(Calendar.MONTH);
                 int day=calendar.get(Calendar.DAY_OF_MONTH);

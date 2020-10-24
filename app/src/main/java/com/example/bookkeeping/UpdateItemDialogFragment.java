@@ -63,7 +63,8 @@ public class UpdateItemDialogFragment extends DialogFragment {
                 String type = spinner.getSelectedItem().toString();
                 manageDB.updateData("BOOKKEEP", _id, title, value, type);
                 UpdateItemDialogFragment.this.getDialog().cancel();
-                DBTool.updateRecyclerView(getContext(), manageDB, recyclerView, "BOOKKEEP", getFragmentManager());
+                /*更新畫面-資料庫2.0-資料內容(ID 標題 金額 型態 圖片 日期)*/
+                DBTool.updateRecyclerView2(getContext(), manageDB, recyclerView, "BOOKKEEP", getFragmentManager());
             }
         });
         btn_cancel.setOnClickListener(new View.OnClickListener() {

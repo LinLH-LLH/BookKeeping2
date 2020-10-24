@@ -86,12 +86,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        載入ViewHolder的view
         View view= LayoutInflater.from(context).inflate(R.layout.recyclerview_item2,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        //        設定ViewHolder的物件
         holder.img.setImageResource(ListMoney.get(position).getImg());
         holder.title.setText(ListMoney.get(position).getTitle());
         holder.subtitle.setText("$"+ListMoney.get(position).getSubtitle());

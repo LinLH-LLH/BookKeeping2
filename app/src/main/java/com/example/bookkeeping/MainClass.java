@@ -35,7 +35,8 @@ public class MainClass extends AppCompatActivity {
         findViews();
         openDBManage();
 //        setRecyclerViewAdapter();
-        DBTool.updateRecyclerView(MainClass.this,manageDB,recyclerView,"BOOKKEEP",getSupportFragmentManager());
+//        更新畫面資料2.0
+        DBTool.updateRecyclerView2(MainClass.this,manageDB,recyclerView,"BOOKKEEP",getSupportFragmentManager());
 
     }
 
