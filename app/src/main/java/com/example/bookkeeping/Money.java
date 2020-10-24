@@ -5,7 +5,7 @@ public class Money {
     private String title,subtitle,type;
     private int img,_id,year,month,date;
 
-    Money(int _id,String title,String subtitle,String type,int img,
+    public Money(int _id,String title,String subtitle,String type,int img,
     int year,int month,int date){
         this._id=_id;
         this.title=title;
@@ -16,7 +16,7 @@ public class Money {
         this.month=month;
         this.date=date;
     }
-    Money(int _id,String title,String subtitle,String type,int img){
+    public Money(int _id, String title, String subtitle, String type, int img){
         this._id=_id;
         this.title=title;
         this.subtitle=subtitle;

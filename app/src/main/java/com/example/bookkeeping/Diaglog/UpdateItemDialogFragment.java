@@ -1,4 +1,4 @@
-package com.example.bookkeeping;
+package com.example.bookkeeping.Diaglog;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -14,6 +14,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookkeeping.Tool.DBTool;
+import com.example.bookkeeping.DataBase.MyBookKeepDBManage;
+import com.example.bookkeeping.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class UpdateItemDialogFragment extends DialogFragment {

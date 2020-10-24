@@ -1,4 +1,4 @@
-package com.example.bookkeeping;
+package com.example.bookkeeping.DataBase;
 
 /*透過SqliteDatabase物件操縱資料庫*/
 

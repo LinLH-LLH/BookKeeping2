@@ -1,4 +1,4 @@
-package com.example.bookkeeping;
+package com.example.bookkeeping.Tool;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -6,6 +6,11 @@ import android.database.Cursor;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bookkeeping.DataBase.MyBookKeepDBManage;
+import com.example.bookkeeping.Money;
+import com.example.bookkeeping.MyRecyclerViewAdapter;
+import com.example.bookkeeping.R;
 
 import java.util.ArrayList;
 import java.util.List;

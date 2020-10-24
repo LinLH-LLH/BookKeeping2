@@ -1,4 +1,4 @@
-package com.example.bookkeeping;
+package com.example.bookkeeping.DataBase;
 
 import android.content.Context;
 import android.database.Cursor;

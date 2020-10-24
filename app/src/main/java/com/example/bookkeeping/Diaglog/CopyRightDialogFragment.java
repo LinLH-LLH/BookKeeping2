@@ -1,4 +1,4 @@
-package com.example.bookkeeping;
+package com.example.bookkeeping.Diaglog;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.bookkeeping.R;
 
 public class CopyRightDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {

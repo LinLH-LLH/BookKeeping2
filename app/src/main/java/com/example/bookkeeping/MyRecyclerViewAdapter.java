@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bookkeeping.DataBase.MyBookKeepDBManage;
+import com.example.bookkeeping.Diaglog.UpdateItemDialogFragment;
+
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
@@ -23,7 +27,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private MyBookKeepDBManage manage;
     private FragmentManager fragmentManager;
     private RecyclerView recyclerView;
-    MyRecyclerViewAdapter(Context context,List<Money> ListMoney,MyBookKeepDBManage manage,FragmentManager fragmentManager,RecyclerView recyclerView){
+    public MyRecyclerViewAdapter(Context context, List<Money> ListMoney, MyBookKeepDBManage manage, FragmentManager fragmentManager, RecyclerView recyclerView){
         this.context=context;
         this.ListMoney=ListMoney;
         this.manage=manage;

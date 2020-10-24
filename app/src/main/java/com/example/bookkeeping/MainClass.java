@@ -15,9 +15,13 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookkeeping.DataBase.MyBookKeepDBManage;
+import com.example.bookkeeping.Diaglog.CopyRightDialogFragment;
+import com.example.bookkeeping.Diaglog.CreateItemDialogFragment;
+import com.example.bookkeeping.Tool.BitmapTool;
+import com.example.bookkeeping.Tool.DBTool;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainClass extends AppCompatActivity {

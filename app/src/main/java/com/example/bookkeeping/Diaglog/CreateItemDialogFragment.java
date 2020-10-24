@@ -1,11 +1,9 @@
-package com.example.bookkeeping;
+package com.example.bookkeeping.Diaglog;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,9 +13,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookkeeping.Tool.DBTool;
+import com.example.bookkeeping.DataBase.MyBookKeepDBManage;
+import com.example.bookkeeping.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
