@@ -68,9 +68,9 @@ public class analysis extends AppCompatActivity {
         set.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
 
 //greenLine最後的圓點
-        set_end = new LineDataSet(values_end, "");
-        set_end.setCircleColor(getResources().getColor(R.color.green));//圓點顏色
-        set_end.setColor(getResources().getColor(R.color.green));//線的顏色
+        set_end = new LineDataSet(values1, "");
+        set_end.setCircleColor(getResources().getColor(R.color.red));//圓點顏色
+        set_end.setColor(getResources().getColor(R.color.red));//線的顏色
         set_end.setCircleRadius(4);//圓點大小
         set_end.setDrawCircleHole(false);//圓點為實心(預設空心)
         set_end.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
@@ -84,8 +84,8 @@ public class analysis extends AppCompatActivity {
 
 //greenLine最後的圓點
         set1_end = new LineDataSet(values1_end, "");
-        set1_end.setCircleColor(getResources().getColor(R.color.green));//圓點顏色
-        set1_end.setColor(getResources().getColor(R.color.green));//線的顏色
+        set1_end.setCircleColor(getResources().getColor(R.color.red));//圓點顏色
+        set1_end.setColor(getResources().getColor(R.color.red));//線的顏色
         set1_end.setCircleRadius(4);//圓點大小
         set1_end.setDrawCircleHole(false);//圓點為實心(預設空心)
         set1_end.setDrawValues(false);//不顯示座標點對應Y軸的數字(預設顯示)
